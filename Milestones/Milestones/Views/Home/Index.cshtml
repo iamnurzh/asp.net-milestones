@@ -1,8 +1,27 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Milestones.Models.Jewelry>
+@{ //ViewData["Title"] = "Список драгоценностей";
+                Layout = null; }
+<!DOCTYPE html>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<html>
+<head>
+    <title>Магазин драгоценностей</title>
+</head>
+<body>
+    <h3>Драгоценности</h3>
+    <table>
+        <tr>
+            <td>Название</td>
+            <td>Цена</td>
+            <td></td>
+        </tr>
+        @foreach (var jewelry in Model)
+        {
+<tr>
+    <td>@jewelry.Name</td>
+    <td>@jewelry.Price</td>
+    <td><a href="~/Home/Buy/@jewelry.Id">Купить</a></td>
+</tr>}
+    </table>
+</body>
+</html>
